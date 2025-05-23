@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const LyonInteractive = () => {
+const SpotlightComponent = () => {
     const [litLetters, setLitLetters] = useState<string[]>([]);
     const [lightsOn, setLightsOn] = useState<boolean>(false);
 
@@ -78,4 +78,4 @@ const LyonInteractive = () => {
     );
 };
 
-export default LyonInteractive;
+export default SpotlightComponent;
