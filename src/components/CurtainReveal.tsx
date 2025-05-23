@@ -1,4 +1,4 @@
-import {ReactNode, useEffect, useState} from "react";
+import {ReactNode, useState} from "react";
 import {AnimatePresence, motion} from "framer-motion";
 
 type CurtainRevealProps = {
@@ -6,8 +6,6 @@ type CurtainRevealProps = {
 };
 
 export default function CurtainReveal({ children }: CurtainRevealProps) {
-    const [isVisible, setIsVisible] = useState(true);
-
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -15,7 +13,6 @@ export default function CurtainReveal({ children }: CurtainRevealProps) {
             <AnimatePresence>
                 {!isOpen && (
                     <>
-                        {/* Rideau gauche */}
                         <motion.img
                             src="/curtain_left.svg"
                             alt="Rideau gauche"
@@ -26,7 +23,6 @@ export default function CurtainReveal({ children }: CurtainRevealProps) {
                             className="fixed top-0 left-0 w-3/5 object-cover z-40"
                         />
 
-                        {/* Rideau droit (inversé) */}
                         <motion.img
                             src="/curtain_right.svg"
                             alt="Rideau droit"
@@ -36,7 +32,7 @@ export default function CurtainReveal({ children }: CurtainRevealProps) {
                             transition={{ duration: 1.5, ease: "easeInOut" }}
                             className="fixed top-0 right-0 w-3/5 object-cover object-right transform scale-x-[-1] z-40"
                         />
-                        {/* Bouton au centre */}
+
                         <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50">
                             <button
                                 onClick={() => setIsOpen(true)}
@@ -49,7 +45,6 @@ export default function CurtainReveal({ children }: CurtainRevealProps) {
                 )}
             </AnimatePresence>
 
-            {/* Contenu du site */}
             <div
                 className={`transition-opacity duration-500 ${
                     isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
