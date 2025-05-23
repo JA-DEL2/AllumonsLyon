@@ -1,23 +1,27 @@
 import React, { useState } from 'react';
 
-const SpotlightComponent = () => {
-    const [litLetters, setLitLetters] = useState<string[]>([]);
+interface SpotlightProps {
+    word: string;
+}
+
+const SpotlightComponent: React.FC<SpotlightProps> = ({ word }) => {
+    const [litIndexes, setLitIndexes] = useState<number[]>([]);
     const [lightsOn, setLightsOn] = useState<boolean>(false);
 
     const lightUpLetters = async () => {
-        const letters = ['L', 'Y', 'O', 'N'];
+        const indexes = Array.from({ length: word.length }, (_, i) => i);
 
         if (lightsOn) {
-            // Désactivation progressive
-            for (let i = letters.length - 1; i >= 0; i--) {
-                setLitLetters(prev => prev.filter(l => l !== letters[i]));
+            // Désactivation progressive de droite à gauche
+            for (let i = indexes.length - 1; i >= 0; i--) {
+                setLitIndexes(prev => prev.filter(index => index !== indexes[i]));
                 await new Promise(res => setTimeout(res, 300));
             }
             setLightsOn(false);
         } else {
-            // Activation progressive
-            for (let i = 0; i < letters.length; i++) {
-                setLitLetters(prev => [...prev, letters[i]]);
+            // Activation progressive de gauche à droite
+            for (let i = 0; i < indexes.length; i++) {
+                setLitIndexes(prev => [...prev, indexes[i]]);
                 await new Promise(res => setTimeout(res, 300));
             }
             setLightsOn(true);
@@ -26,20 +30,20 @@ const SpotlightComponent = () => {
 
     return (
         <div className="relative w-full h-screen bg-black overflow-hidden select-none">
-            {/* Titre LYON avec glow progressif */}
+            {/* Affichage du mot avec effet lumineux */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none px-4">
                 <div className="flex flex-wrap justify-center gap-x-4 gap-y-2">
-                    {['L', 'Y', 'O', 'N'].map(letter => (
+                    {word.split('').map((letter, index) => (
                         <span
-                            key={letter}
+                            key={index}
                             className={`font-black tracking-wider transition-all duration-700 ease-out
                                 text-[24vw] sm:text-[20vw] md:text-[18vw] lg:text-[14vw] xl:text-[12vw]`}
                             style={{
-                                color: litLetters.includes(letter) ? '#ffffff' : '#222222',
-                                textShadow: litLetters.includes(letter)
+                                color: litIndexes.includes(index) ? '#ffffff' : '#222222',
+                                textShadow: litIndexes.includes(index)
                                     ? '0 0 30px rgba(255,255,255,0.6), 0 0 60px rgba(255,255,255,0.3)'
                                     : 'none',
-                                opacity: litLetters.includes(letter) ? 1 : 0.3,
+                                opacity: litIndexes.includes(index) ? 1 : 0.3,
                             }}
                         >
                             {letter}
@@ -56,17 +60,17 @@ const SpotlightComponent = () => {
                     bg-white hover:scale-105`}
                 >
                     <span className="text-2xl">
-                        {litLetters.length === 4 ? '💡' : '✨'}
+                        {litIndexes.length === word.length ? '💡' : '✨'}
                     </span>
                 </button>
 
                 <div className="mt-3 text-center text-sm font-medium text-white">
-                    {litLetters.length === 4 ? 'ÉTEINDRE' : 'ILLUMINER'}
+                    {litIndexes.length === word.length ? 'ÉTEINDRE' : 'ILLUMINER'}
                 </div>
             </div>
 
             {/* Effet d'ambiance léger */}
-            {litLetters.length > 0 && (
+            {litIndexes.length > 0 && (
                 <div
                     className="absolute inset-0 pointer-events-none"
                     style={{
