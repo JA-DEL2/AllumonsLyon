@@ -1,16 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import SpotlightComponent from "./components/spotlights/SpotlightComponent";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from "./pages/Home";
 
-function App() {
-  return (
-    <div className="App">
-        <div style={{ backgroundColor: 'black', height: '100vh' }}>
-            <SpotlightComponent></SpotlightComponent>
-        </div>
-    </div>
-  );
-}
+const App = () => {
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<Home />} />
+            </Routes>
+        </Router>
+    );
+};
 
 export default App;
