@@ -1,11 +1,14 @@
 import React from 'react';
 import SpotlightComponent from "../components/spotlights/SpotlightComponent";
+import CurtainReveal from "../components/CurtainReveal";
 
 const Home = () => {
     return (
-        <div className="min-h-screen bg-black ">
-            <SpotlightComponent word="LYON" flickerSpeed={3000}></SpotlightComponent>
-        </div>
+        <CurtainReveal>
+            <div className="min-h-screen bg-black ">
+                <SpotlightComponent word="LYON" flickerSpeed={0}></SpotlightComponent>
+            </div>
+        </CurtainReveal>
     );
 };
 
