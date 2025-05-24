@@ -5,12 +5,12 @@ import NextArrow from "../components/arrows/NextArrow";
 
 export default function MapPage() {
   return (
-    <div className="relative mt-[10vh] bg-black text-white min-h-screen">
+    <div className="relative mt-[10vh] bg-black text-white max-h-screen">
       {/* Flèche précédente - fixée à gauche */}
       <BeforeArrow children={"/"} />
 
       {/* Flèche suivante - fixée à droite */}
-      <NextArrow children={"/map"} />
+      <NextArrow children={"/actors"} />
 
       <h1 className="text-4xl font-extrabold text-white text-center mt-20 mb-16 drop-shadow-lg">
         Lieux importants de la cinématographie Lyonnaise
