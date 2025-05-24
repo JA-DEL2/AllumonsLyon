@@ -5,7 +5,7 @@ import NextArrow from "../components/arrows/NextArrow";
 
 export default function MapPage() {
   return (
-    <div className="relative mt-[10vh] bg-black text-white min-h-screen">
+    <div className="relative mt-[10vh] bg-black text-white max-h-screen">
       {/* Flèche précédente - fixée à gauche */}
       <BeforeArrow children={"/"} />
 

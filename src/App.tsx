@@ -4,8 +4,10 @@ import Home from "./pages/Home";
 import "./App.css";
 import HeaderComponent from "./components/header/HeaderComponent";
 import Map from "./pages/MapPage"
+import Films from "./pages/Films";
 
 const App = () => {
+
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
@@ -17,6 +19,7 @@ const App = () => {
             element={<Home isOpen={isOpen} setIsOpen={setIsOpen} />}
           />
             <Route path="/map" element={<Map />} />
+            <Route path="/archives" element={<Films />} />
         </Routes>
       </Router>
     </>
