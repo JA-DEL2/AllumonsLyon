@@ -10,7 +10,7 @@ export default function MapPage() {
       <BeforeArrow children={"/"} />
 
       {/* Flèche suivante - fixée à droite */}
-      <NextArrow children={"/map"} />
+      <NextArrow children={"/actors"} />
 
       <h1 className="text-4xl font-extrabold text-white text-center mt-20 mb-16 drop-shadow-lg">
         Lieux importants de la cinématographie Lyonnaise
