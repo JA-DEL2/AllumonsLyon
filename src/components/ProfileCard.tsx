@@ -8,7 +8,7 @@ interface ProfileCardProps {
 
 const ProfileCard: React.FC<ProfileCardProps> = ({ image, title, description }) => {
     return (
-        <div className="max-w-sm rounded-lg overflow-hidden shadow-lg bg-gray-400 p-6">
+        <div className="min-w-[200px] max-w-sm rounded-lg overflow-hidden shadow-lg bg-gray-400 p-6">
             <img className="w-full h-48 object-cover rounded-lg" src={image} alt={title} />
             <div className="mt-4 text-center">
                 <h2 className="text-xl font-bold text-gray-800">{title}</h2>

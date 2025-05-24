@@ -16,19 +16,12 @@ export default function ActorsPage() {
             <h1 className="text-4xl font-extrabold text-white text-center mt-20 mb-16 drop-shadow-lg">
                 Les acteurs lyonnais importants
             </h1>
-
+            
             {/* Carte au centre, prend toute la place */}
             <div
                 className="w-full flex justify-center mt-8"
             >
-                <div
-                    className="rounded-lg overflow-hidden"
-                    style={{
-                        boxShadow: '0 0 20px 10px rgba(255, 255, 255, 0.7)',
-                    }}
-                >
-                    <ProfileRow />
-                </div>
+                <ProfileRow />
             </div>
 
 

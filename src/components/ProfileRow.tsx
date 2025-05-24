@@ -1,10 +1,10 @@
 import React from "react";
-import ProfileCard from "./ProfileCard"; // Assurez-vous que ce fichier existe
+import ProfileCard from "./ProfileCard";
 
 const ProfileRow: React.FC = () => {
     return (
-        <div className="flex justify-center items-center min-h-screen">
-            <div className="flex space-x-6">
+        <div className="flex justify-center items-center min-h-[75vh]">
+            <div className="flex flex-wrap justify-center gap-6">
                 <ProfileCard 
                     image="https://upload.wikimedia.org/wikipedia/commons/c/cd/G%C3%A9rard_Depardieu_1993.jpg"
                     title="Alice Dupont"
