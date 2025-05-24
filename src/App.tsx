@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import "./App.css";
+import HeaderComponent from "./components/header/HeaderComponent";
 
-function App() {
+const App = () => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <HeaderComponent isOpen={isOpen} />
+      <Router>
+        <Routes>
+          <Route
+            path="/"
+            element={<Home isOpen={isOpen} setIsOpen={setIsOpen} />}
+          />
+        </Routes>
+      </Router>
+    </>
   );
-}
+};
 
 export default App;
