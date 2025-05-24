@@ -1,0 +1,11 @@
+.top-curtain {
+  position: fixed;
+  top: -5%;
+  left: -50%;
+  width: 200vw;
+  max-width: 200vw;
+  height: auto;
+  max-height: 25vh;
+  z-index: 60;
+  pointer-events: none;
+}
