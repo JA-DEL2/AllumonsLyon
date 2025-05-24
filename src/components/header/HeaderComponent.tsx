@@ -8,7 +8,7 @@ const HeaderComponent = ({ isOpen }: { isOpen: boolean }) => {
       <TopCurtainComponent />
       <motion.header
         initial={{ opacity: 0 }}
-        animate={{ opacity: isOpen ? 1 : 0 }}
+        animate={{ opacity: isOpen ? 1 : 1 }}
         transition={{ duration: 1.2, delay: 0.5 }}
         className="
         text-[#f2e9e4]
@@ -26,12 +26,6 @@ const HeaderComponent = ({ isOpen }: { isOpen: boolean }) => {
             className="text-[#f2e9e4] no-underline text-base hover:underline"
           >
             Accueil
-          </a>
-          <a
-            href="/#"
-            className="text-[#f2e9e4] no-underline text-base hover:underline"
-          >
-            Osef
           </a>
           <a
             href="/about"

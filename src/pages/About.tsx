@@ -26,7 +26,7 @@ const About: React.FC = () => {
             alt="Tybo"
             className="w-20 h-20 rounded-full mb-3 object-cover border-4 border-yellow-300 shadow"
           />
-          <h3 className="text-lg font-bold">Tybo</h3>
+          <h3 className="text-lg font-bold">Thibault</h3>
           <p className="text-sm opacity-80">Très doué</p>
         </div>
         <div className="flex flex-col items-center bg-white/10 rounded-xl p-6 shadow-lg">
