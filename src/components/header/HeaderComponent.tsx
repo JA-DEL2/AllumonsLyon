@@ -19,7 +19,7 @@ const HeaderComponent = ({ isOpen }: { isOpen: boolean }) => {
         w-full
         "
       >
-        <h1 className="m-0 text-2xl font-bold">Allumons</h1>
+        <h1 className="m-0 text-2xl font-bold">Allumons Lyon</h1>
         <nav className="flex gap-5">
           <a
             href="/"
@@ -34,7 +34,7 @@ const HeaderComponent = ({ isOpen }: { isOpen: boolean }) => {
             Osef
           </a>
           <a
-            href="/#"
+            href="/about"
             className="text-[#f2e9e4] no-underline text-base hover:underline"
           >
             À propos
