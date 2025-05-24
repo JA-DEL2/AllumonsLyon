@@ -16,6 +16,7 @@ const App = () => {
             path="/"
             element={<Home isOpen={isOpen} setIsOpen={setIsOpen} />}
           />
+            <Route path="/map" element={<Map />} />
         </Routes>
       </Router>
     </>

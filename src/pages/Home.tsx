@@ -1,7 +1,7 @@
 import React from 'react';
 import SpotlightComponent from "../components/spotlights/SpotlightComponent";
-import CurtainReveal from "../components/CurtainReveal";
 import NextArrow from "../components/arrows/NextArrow";
+import CurtainReveal from '../components/curtains/CurtainReveal';
 
 const Home = ({
   isOpen,
