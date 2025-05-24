@@ -12,7 +12,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ image, title, description }) 
             <img className="w-full h-48 object-cover rounded-lg" src={image} alt={title} />
             <div className="mt-4 text-center">
                 <h2 className="text-xl font-bold text-gray-800">{title}</h2>
-                <p className="mt-2 text-gray-700">{description}</p>
+                <p className="mt-2 text-gray-700 text-justify">{description}</p>
             </div>
         </div>
     );
