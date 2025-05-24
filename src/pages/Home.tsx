@@ -1,11 +1,17 @@
 import React from 'react';
 import SpotlightComponent from "../components/spotlights/SpotlightComponent";
-import CurtainReveal from "../components/CurtainReveal";
 import NextArrow from "../components/arrows/NextArrow";
+import CurtainReveal from '../components/curtains/CurtainReveal';
 
-const Home = () => {
-    return (
-        <CurtainReveal>
+const Home = ({
+  isOpen,
+  setIsOpen,
+}: {
+  isOpen: boolean;
+  setIsOpen: (open: boolean) => void;
+}) => {
+  return (
+    <CurtainReveal isOpen={isOpen} setIsOpen={setIsOpen}>
             <div className="min-h-screen bg-black relative text-white">
 
                 {/* Allumons vers le haut */}
