@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import "./App.css";
 import HeaderComponent from "./components/header/HeaderComponent";
+import Map from "./pages/MapPage"
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
