@@ -1,25 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface SpotlightProps {
     word: string;
+    flickerSpeed?: number; // Ajout du paramètre pour réguler la fréquence
 }
 
-const SpotlightComponent: React.FC<SpotlightProps> = ({ word }) => {
+const SpotlightComponent: React.FC<SpotlightProps> = ({ word, flickerSpeed = 300 }) => {
     const [litIndexes, setLitIndexes] = useState<number[]>([]);
+    const [flickeringLetters, setFlickeringLetters] = useState<number[]>([]);
     const [lightsOn, setLightsOn] = useState<boolean>(false);
+
+    useEffect(() => {
+        if (lightsOn) {
+            const interval = setInterval(() => {
+                const randomIndexes = litIndexes.length > 0
+                    ? [litIndexes[Math.floor(Math.random() * litIndexes.length)]]
+                    : [];
+                setFlickeringLetters(randomIndexes);
+            }, flickerSpeed); // Utilisation du paramètre pour ajuster la fréquence
+
+            return () => clearInterval(interval);
+        } else {
+            setFlickeringLetters([]);
+        }
+    }, [lightsOn, litIndexes, flickerSpeed]);
 
     const lightUpLetters = async () => {
         const indexes = Array.from({ length: word.length }, (_, i) => i);
 
         if (lightsOn) {
-            // Désactivation progressive de droite à gauche
             for (let i = indexes.length - 1; i >= 0; i--) {
                 setLitIndexes(prev => prev.filter(index => index !== indexes[i]));
                 await new Promise(res => setTimeout(res, 300));
             }
             setLightsOn(false);
         } else {
-            // Activation progressive de gauche à droite
             for (let i = 0; i < indexes.length; i++) {
                 setLitIndexes(prev => [...prev, indexes[i]]);
                 await new Promise(res => setTimeout(res, 300));
@@ -41,7 +56,9 @@ const SpotlightComponent: React.FC<SpotlightProps> = ({ word }) => {
                             style={{
                                 color: litIndexes.includes(index) ? '#ffffff' : '#222222',
                                 textShadow: litIndexes.includes(index)
-                                    ? '0 0 30px rgba(255,255,255,0.6), 0 0 60px rgba(255,255,255,0.3)'
+                                    ? flickeringLetters.includes(index)
+                                        ? '0 0 40px rgba(255,255,255,0.8), 0 0 80px rgba(255,255,255,0.5)'
+                                        : '0 0 30px rgba(255,255,255,0.6), 0 0 60px rgba(255,255,255,0.3)'
                                     : 'none',
                                 opacity: litIndexes.includes(index) ? 1 : 0.3,
                             }}
