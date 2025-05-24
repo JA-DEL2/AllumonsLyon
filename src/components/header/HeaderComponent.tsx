@@ -14,7 +14,7 @@ const HeaderComponent = ({ isOpen }: { isOpen: boolean }) => {
         text-[#f2e9e4]
         px-10 py-5
         flex items-center justify-between
-        absolute
+        fixed
         z-[9999]
         w-full
         "
