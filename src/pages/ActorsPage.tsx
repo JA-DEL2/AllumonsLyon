@@ -11,7 +11,7 @@ export default function ActorsPage() {
             <BeforeArrow children={'/map'} />
 
             {/* Flèche suivante - fixée à droite */}
-            {/* <NextArrow children={'/'} /> */}
+            <NextArrow children={'/archives'} />
 
             <h1 className="text-4xl font-extrabold text-white text-center mt-20 mb-16 drop-shadow-lg">
                 Les acteurs lyonnais importants
