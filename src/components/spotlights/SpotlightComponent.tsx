@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 interface SpotlightProps {
     word: string;
-    flickerSpeed?: number; // Ajout du paramètre pour réguler la fréquence
+    flickerSpeed?: number;// Ajout du paramètre pour réguler la fréquence
 }
 
 const SpotlightComponent: React.FC<SpotlightProps> = ({ word, flickerSpeed = 300 }) => {

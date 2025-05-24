@@ -2,6 +2,11 @@ import React from 'react';
 import SpotlightComponent from "../components/spotlights/SpotlightComponent";
 import NextArrow from "../components/arrows/NextArrow";
 import CurtainReveal from '../components/curtains/CurtainReveal';
+import CurtainTransition from "../components/curtains/CurtainTransition";
+
+export type setIsOpenProps = {
+    setIsOpen : (open: boolean) => void;
+};
 
 const Home = ({
   isOpen,
@@ -29,7 +34,7 @@ const Home = ({
                 <NextArrow children={'/map'}></NextArrow>
 
             </div>
-        </CurtainReveal>
+    </CurtainReveal>
 
     );
 };

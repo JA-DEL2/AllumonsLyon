@@ -50,7 +50,6 @@ const About: React.FC = () => {
           </p>
         </div>
       </div>
-      <img src="/ochaco.jpg" alt="osef" className="w-60 mt-8 shadow-lg" />
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-type CurtainRevealProps = {
+export type CurtainRevealProps = {
   children: ReactNode;
   isOpen: boolean;
   setIsOpen: (open: boolean) => void;
@@ -37,14 +37,19 @@ export default function CurtainReveal({
               className="fixed top-0 right-0 w-3/5 object-cover object-right transform scale-x-[-1] z-40"
             />
 
-            <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50">
-              <button
-                onClick={() => setIsOpen(true)}
-                className="px-6 py-3 text-white bg-white/10 border border-white rounded-lg backdrop-blur-md text-xl hover:bg-white/20 transition"
+              <motion.div
+                  className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50"
+                  initial={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
               >
-                Entrer
-              </button>
-            </div>
+                  <button
+                      onClick={() => setIsOpen(true)}
+                      className="px-6 py-3 text-white bg-white/10 border border-white rounded-lg backdrop-blur-md text-xl hover:bg-white/20"
+                  >
+                      Entrer
+                  </button>
+              </motion.div>
           </>
         )}
       </AnimatePresence>

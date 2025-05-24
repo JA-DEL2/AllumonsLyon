@@ -1,5 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
+import BeforeArrow from "../components/arrows/BeforeArrow";
 
 const Films: React.FC = () => {
 
@@ -33,6 +34,9 @@ const Films: React.FC = () => {
 
     return (
         <div className="min-h-screen bg-black flex items-center justify-center px-4">
+
+            <BeforeArrow children={'/actors'} />
+
             <div className="w-full max-w-6xl">
                 <h2 className="text-3xl font-bold mb-6 text-center text-white">
                     Archives des frères Lumière
