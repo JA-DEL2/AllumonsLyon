@@ -6,7 +6,7 @@ const Home = () => {
     return (
         <CurtainReveal>
             <div className="min-h-screen bg-black ">
-                <SpotlightComponent></SpotlightComponent>
+                <SpotlightComponent word="LYON" flickerSpeed={0}></SpotlightComponent>
             </div>
         </CurtainReveal>
     );
